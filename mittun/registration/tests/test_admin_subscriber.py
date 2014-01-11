@@ -73,7 +73,8 @@ class AdminSubscriberSendMailWithValidData(test.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        management.call_command("loaddata", "subscribers.yaml", verbosity=0)
+        # management.call_command("loaddata", "subscribers.yaml", verbosity=0)
+        management.call_command("loaddata", "subscribers.json", verbosity=0)
 
         cls.data = {
             "subject": "Welcome to the Django",

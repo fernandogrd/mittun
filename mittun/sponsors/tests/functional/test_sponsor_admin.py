@@ -13,7 +13,7 @@ class SponsorAdminTestCase(TestCase):
         self.user.user_permissions.add(*sponsor_permissions)
         self.user.save()
 
-        self.category = Category.objects.create(name="categorytest", priority=1)
+        self.category = Category.objects.create(name_en="categorytest", priority=1)
         self.sponsor = Sponsor.objects.create(name="nametest",
                                               description="desctest",
                                               url="http://urlteste.com",
@@ -88,7 +88,7 @@ class SponsorAdminTestCase(TestCase):
 
     def test_add_new_sponsor_should_return_200(self):
         data = {"name": "test123",
-                "description_en_us": "desctest",
+                "description_en": "desctest",
                 "url": "http://urlteste.com",
                 "category": self.category.id,
                 "user": self.user.id,

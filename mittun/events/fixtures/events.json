@@ -4,7 +4,7 @@
         "model" : "events.event",
         "fields" : {
             "name" : "Event 1",
-            "description_en_us": "Event 1 foo bar",
+            "description_en": "Event 1 foo bar",
             "description_pt_br": "Event 1 foo bar"
         }
     }

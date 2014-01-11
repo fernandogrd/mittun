@@ -9,11 +9,11 @@ class SponsorModelTestCase(ModelTestCase):
 
     @classmethod
     def setUpClass(self):
-        self.category = Category.objects.create(name_en_us='test', priority=1)
+        self.category = Category.objects.create(name_en='test', priority=1)
         self.user = User.objects.create_user('derp', 'derp@derpmail.com', 'derppass')
         self.sponsor = Sponsor.objects.create(
             name='sponsor name',
-            description_en_us='sponsor description',
+            description_en='sponsor description',
             url='sponsorurl.com',
             category=self.category,
             user = self.user
@@ -27,14 +27,14 @@ class SponsorModelTestCase(ModelTestCase):
     def test_model_should_have_a_name_field(self):
         self.assertIsFieldPresent('name', Sponsor)
 
-    def test_model_should_have_a_en_us_description(self):
-        self.assertIsFieldPresent('description_en_us', Sponsor)
+    def test_model_should_have_a_en_description(self):
+        self.assertIsFieldPresent('description_en', Sponsor)
 
     def test_model_should_have_a_pt_br_description(self):
         self.assertIsFieldPresent('description_pt_br', Sponsor)
 
     def test_description_should_be_a_text_field(self):
-        self.assertIsInstance(self.sponsor._meta._name_map['description_en_us'][0], models.TextField)
+        self.assertIsInstance(self.sponsor._meta._name_map['description_en'][0], models.TextField)
 
     def test_model_should_have_a_logo(self):
         self.assertIsFieldPresent('logo', Sponsor)

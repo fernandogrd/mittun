@@ -38,7 +38,7 @@ TIME_ZONE = 'America/Sao_Paulo'
 LANGUAGE_CODE = 'en-us'
 
 LANGUAGES = (
-    ('en-us', 'English'),
+    ('en', 'English'),
     ('pt-br', u'Português'),
 )
 

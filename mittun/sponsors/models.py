@@ -28,7 +28,7 @@ class Category(models.Model):
         translate = ('name', )
 
     def __unicode__(self):
-        return self.name
+        return self.name_en
 
 
 class Sponsor(models.Model):

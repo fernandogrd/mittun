@@ -7,24 +7,21 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        
-        # Deleting field 'Sponsor.description_en'
-        db.delete_column('sponsors_sponsor', 'description_en')
 
+        # Deleting field 'Sponsor.description_en_us'
+        db.delete_column('sponsors_sponsor', 'description_en_us')
         # Adding field 'Sponsor.description_en'
+
         db.add_column('sponsors_sponsor', 'description_en', self.gf('django.db.models.fields.TextField')(null=True, blank=True), keep_default=False)
 
         # Changing field 'Sponsor.description_pt_br'
         db.alter_column('sponsors_sponsor', 'description_pt_br', self.gf('django.db.models.fields.TextField')(default=''))
 
-        # Deleting field 'Category.name_en'
-        db.delete_column('sponsors_category', 'name_en')
+        # Deleting field 'Category.name_en_us'
+        db.delete_column('sponsors_category', 'name_en_us')
 
         # Adding field 'Category.name_en'
         db.add_column('sponsors_category', 'name_en', self.gf('django.db.models.fields.CharField')(max_length=120, null=True, blank=True), keep_default=False)
-
-        # Adding field 'Category.priority'
-        db.add_column('sponsors_category', 'priority', self.gf('django.db.models.fields.IntegerField')(default=''), keep_default=False)
 
         # Changing field 'Category.name_pt_br'
         db.alter_column('sponsors_category', 'name_pt_br', self.gf('django.db.models.fields.CharField')(default='', max_length=120))
@@ -34,24 +31,6 @@ class Migration(SchemaMigration):
         
         # User chose to not deal with backwards NULL issues for 'Sponsor.description_en'
         raise RuntimeError("Cannot reverse this migration. 'Sponsor.description_en' and its values cannot be restored.")
-
-        # Deleting field 'Sponsor.description_en'
-        db.delete_column('sponsors_sponsor', 'description_en')
-
-        # Changing field 'Sponsor.description_pt_br'
-        db.alter_column('sponsors_sponsor', 'description_pt_br', self.gf('django.db.models.fields.TextField')(null=True))
-
-        # User chose to not deal with backwards NULL issues for 'Category.name_en'
-        raise RuntimeError("Cannot reverse this migration. 'Category.name_en' and its values cannot be restored.")
-
-        # Deleting field 'Category.name_en'
-        db.delete_column('sponsors_category', 'name_en')
-
-        # Deleting field 'Category.priority'
-        db.delete_column('sponsors_category', 'priority')
-
-        # Changing field 'Category.name_pt_br'
-        db.alter_column('sponsors_category', 'name_pt_br', self.gf('django.db.models.fields.CharField')(max_length=120, null=True))
 
 
     models = {

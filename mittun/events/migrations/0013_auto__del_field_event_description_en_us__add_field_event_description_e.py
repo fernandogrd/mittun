@@ -9,7 +9,7 @@ class Migration(SchemaMigration):
     def forwards(self, orm):
         
         # Deleting field 'Event.description_en'
-        db.delete_column('events_event', 'description_en')
+        db.delete_column('events_event', 'description_en_us')
 
         # Adding field 'Event.description_en'
         db.add_column('events_event', 'description_en', self.gf('django.db.models.fields.TextField')(max_length=200, null=True, blank=True), keep_default=False)
